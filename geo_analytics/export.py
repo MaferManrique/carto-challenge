@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 def generate_map_csv(df: pd.DataFrame, output_path: str):
     """
@@ -17,5 +18,10 @@ def generate_map_csv(df: pd.DataFrame, output_path: str):
     
     if not output_path:
         raise ValueError("Invalid output path.")
+
+    directory = os.path.dirname(output_path)
+    
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     df[['poi_id', 'lon', 'lat', 'cluster_id']].to_csv(output_path, index=False)
