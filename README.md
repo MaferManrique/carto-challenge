@@ -6,7 +6,7 @@ This project addresses the Carto Code Challenge and aims to identify delivery zo
 
 This project is best utilized with Docker for ease of use and configuration simplicity. Just follow these instructions to run the project:
 
-1. Obtain Google Cloud Credentials and place the `credentials.json` file in the `config` directory. Ensure the file is named `credentials.json` and located in the `config` folder. You can follow the steps in this [tutorial](https://developers.google.com/workspace/guides/create-credentials#service-account). If not, adjust the path to the credentials file in the `docker-compose.yml` configuration and the Jupyter Notebook accordingly.
+1. Obtain Google Cloud Credentials and place the `credentials.json` file in the `config` directory. Ensure the file is named `credentials.json` and located in the `config` folder. You can follow the steps in this [tutorial](https://developers.google.com/workspace/guides/create-credentials#service-account). If not, adjust the path to the credentials file in the `docker-compose.yml` configuration and the Jupyter Notebook accordingly. Make sure the credentials are linked to a project with BigQuery API enabled.
 2. Run the following command to build the Docker image:
 
 ```
