@@ -15,7 +15,7 @@ docker-compose build && docker-compose up
 
 ### Running the Notebook.
 
-If everything is configured correctly, access the Notebook by navigating to [http://localhost:8001/lab/tree/MadridRestaurantsNotebook.ipynb](http://localhost:8001/lab/tree/MadridRestaurantsNotebook.ipynb)
+If everything is configured correctly, access the Notebook by navigating to [http://localhost:8001/notebooks/MadridRestaurantsNotebook.ipynb](http://localhost:8001/notebooks/MadridRestaurantsNotebook.ipynb)
 
 ### Running API Rest
 
