@@ -22,6 +22,6 @@ def filter_poi_by_proximity_to_group(df: pd.DataFrame, filter_group: pd.DataFram
 
 def split_pois_by_clusters(df: pd.DataFrame, n_clusters: int):
     kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(df[['lon', 'lat']])
-    df['cluster_id'] = kmeans.labels_
+    df.loc[:, 'cluster_id'] = kmeans.labels_
 
     return df
