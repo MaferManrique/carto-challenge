@@ -1,0 +1,6 @@
+venv
+data/*
+config/credentials.json
+.ipynb_checkpoints
+.DS_Store
+geo_analytics/__pycache__

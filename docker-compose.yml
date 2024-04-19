@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile.notebook
+    ports:
+      - "8001:8888"
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=./config/credentials.json
+    command: jupyter lab --ip=0.0.0.0 --allow-root --NotebookApp.token=''
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: madridPois
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:5000"
+    environment:
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: db:5432
+      DATABASE_DB: madridPois
+      GOOGLE_APPLICATION_CREDENTIALS: ./config/credentials.json
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
