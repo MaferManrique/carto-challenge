@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12
 
 WORKDIR /app
 
@@ -9,12 +9,5 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY geo_analytics geo_analytics
 COPY config config
 COPY MadridRestaurantsNotebook.ipynb .
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    build-essential \
-    python3-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app/data
